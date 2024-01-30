@@ -70,6 +70,23 @@ const refs = {
 };
 
 refs.gallery.innerHTML = createMarcup(images);
+function createMarcup(arr) {
+    return arr.map(
+        ({ preview, original, description }) =>
+          `<li class="gallery-item">
+    <a class="gallery-link" href="${original}">
+      <img
+        class="gallery-image"
+        src="${preview}"
+        data-source="${original}"
+        alt="${description}"
+      />
+    </a>
+  </li>`,
+      )
+      .join('');
+  }
+  
 
 refs.gallery.addEventListener('click', onGalleryClick);
 
@@ -100,23 +117,6 @@ function onGalleryClick(event) {
   instance.show();
 }
 
-function createMarcup(arr) {
-  return arr
-    .map(
-      ({ preview, original, description }) =>
-        `<li class="gallery-item">
-  <a class="gallery-link" href="${original}">
-    <img
-      class="gallery-image"
-      src="${preview}"
-      data-source="${original}"
-      alt="${description}"
-    />
-  </a>
-</li>`,
-    )
-    .join('');
-}
 
 function onModalClose(event) {
   if (event.code === 'Escape') {
