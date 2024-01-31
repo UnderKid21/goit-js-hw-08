@@ -69,8 +69,8 @@ const refs = {
   gallery: document.querySelector('.gallery'),
 };
 
-refs.gallery.innerHTML = createMarcup(images);
-function createMarcup(arr) {
+refs.gallery.innerHTML = createMarkup(images);
+function createMarkup(arr) {
     return arr.map(
         ({ preview, original, description }) =>
           `<li class="gallery-item">
@@ -78,8 +78,8 @@ function createMarcup(arr) {
       <img
         class="gallery-image"
         src="${preview}"
-        data-source="${original}"
         alt="${description}"
+        data-source="${original}"
       />
     </a>
   </li>`,
@@ -91,9 +91,9 @@ function createMarcup(arr) {
 refs.gallery.addEventListener('click', onGalleryClick);
 
 function onGalleryClick(event) {
-  event.preventDefault();
+    event.preventDefault();
   if (event.target === event.currentTarget) {
-    return;
+      return; 
   }
   const original = event.target.dataset.source;
   const description = event.target.dataset.description;
@@ -106,10 +106,10 @@ function onGalleryClick(event) {
         />
      </div>`,
     {
-      onShow: () => {
+      onShow: (instance) => {
         document.addEventListener('keydown', onModalClose);
       },
-      onClose: () => {
+      onClose: (instance) => {
         document.removeEventListener('keydown', onModalClose);
       },
     },
