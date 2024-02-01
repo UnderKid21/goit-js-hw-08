@@ -32,6 +32,7 @@ html {
   }
   
   .gallery-image {
+    
     width: 360px;
     height: 300px;
     border-radius: 5px;

@@ -96,7 +96,7 @@ function onGalleryClick(event) {
       return; 
   }
   const original = event.target.dataset.source;
-  const description = event.target.dataset.description;
+  const description = event.target.alt;
 
   instance = basicLightbox.create(
     `<div class="modal">
