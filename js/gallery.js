@@ -92,7 +92,7 @@ refs.gallery.addEventListener('click', onGalleryClick);
 
 function onGalleryClick(event) {
     event.preventDefault();
-  if (event.target === event.current.target) {
+  if (event.target === event.currentTarget) {
       return; 
   }
   const original = event.target.dataset.source;
